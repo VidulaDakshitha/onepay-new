@@ -180,10 +180,10 @@
                     <p class="contactus-detail-form__para">Lorem Ipsum is simply dummy text of the printing .</p>
 
 
-                    <form id="data" class="contactus-form">
+                    <form id="contactus-form" class="contactus-form">
                         <div class="row mb-3">
                             <div class="col-md-12">
-                                <label for="firstname" class="contactus-form-label">Full Name</label>
+                                <label for="name" class="contactus-form-label">Full Name</label>
                                 <input type="text" class="form-control contactus-form-input" name="name" id="name" placeholder="Write your Full Name">
                             </div>
                         </div>
@@ -191,15 +191,15 @@
 
                         <div class="row mb-3">
                             <div class="col-md-12">
-                                <label for="firstname" class="contactus-form-label">Phone Number</label>
+                                <label for="phone" class="contactus-form-label">Phone Number</label>
                                 <input type="text" class="form-control contactus-form-input" name="phone" id="phone" placeholder="Write your Phone Number">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-md-12">
-                                <label for="firstname" class="contactus-form-label">Email Address</label>
-                                <input type="email" class="form-control contactus-form-input"  name="email_address" id="email_address"   placeholder="Write your Email address">
+                                <label for="email_address" class="contactus-form-label">Email Address</label>
+                                <input type="email" class="form-control contactus-form-input"  name="email_address" id="email_address" placeholder="Write your Email address">
                             </div>
                         </div>
 
@@ -317,7 +317,7 @@
         $('#error').modal('show'); 
       } else {
         $.ajax({
-          url: "https://merchant-api-development.onepay.lk/api/merchant/contact_form/",
+          url: "https://merchant-api-developments.onepay.lk/api/merchant/contact_form/",
           contentType: "application/json",
           type: "POST",
           data: JSON.stringify(formData),
@@ -361,25 +361,21 @@
         if (status == "success") {
           if(response.status==100)
         {
-          $('#success').modal('show'); 
-          document.getElementById("name").value = "";
-          document.getElementById("email_address").value = "";
-          document.getElementById("subject").value = "";
-          document.getElementById("message").value = "";
+          $('#success').modal('show');
+          $('#contactus-form').trigger('reset');
         }else if(response.status==103){
           $('#error').modal('show'); 
         }else{
           $('#error2').modal('show'); 
         }
-
-
-
         } else if (status == "error") {
           $('#error2').modal('show'); 
         } else {
           alert("Error occured");
         }
       }
+
+      
     });
 
   </script>

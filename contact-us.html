@@ -192,7 +192,7 @@
                         <div class="row mb-3">
                             <div class="col-md-12">
                                 <label for="firstname" class="contactus-form-label">Phone Number</label>
-                                <input type="text" class="form-control contactus-form-input" name="subject" id="subject" placeholder="Write your Phone Number">
+                                <input type="text" class="form-control contactus-form-input" name="phone" id="phone" placeholder="Write your Phone Number">
                             </div>
                         </div>
 
@@ -232,9 +232,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLongTitle">Success</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center">
              <img  class="img-fluid" src="./assets/Images/congrats.png"/>
@@ -242,8 +240,7 @@
              <p class="pt-2">We will get back to you soon</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
@@ -262,7 +259,7 @@
             <div class="modal-body text-center">
              <img  class="img-fluid" src="./assets/Images/failed.png"/>
       
-             <p class="pt-2">Please fill all required details!!!</p>
+             <p class="pt-2" id="contactus-form-field-error">Please fill all required details!!!</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -279,9 +276,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLongTitle">Error</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center">
              <img  class="img-fluid" src="./assets/Images/failed.png"/>
@@ -289,8 +284,7 @@
              <p class="pt-2">Error occured while saving details!!!</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
@@ -309,22 +303,17 @@
       event.preventDefault();
       var Name1 = document.getElementById("name").value;
       var email1 = document.getElementById("email_address").value;
-      var subject1 = document.getElementById("subject").value;
+      var phone1 = document.getElementById("phone").value;
       var message1 = document.getElementById("message").value;
 
       var formData = {
         name: $("#name").val(),
         email: $("#email_address").val(),
-        phone: $("#subject").val(),
+        phone: $("#phone").val(),
         message: $("#message").val(),
       };
-      // If valid-----------------------
-
-      if (Name1 == ""|| email1 == "" || subject1 == "") {
-        $('#error').modal('show'); 
-      } else if (email1 == "") {
-        $('#error').modal('show'); 
-      } else if (subject1 == "") {
+      
+      if (!checkValidation()) {
         $('#error').modal('show'); 
       } else {
         $.ajax({
@@ -335,18 +324,41 @@
           dataType: "json",
           complete: function (response, status) {
             onItemSaveComplete(JSON.parse(response.responseText), status);
-            
-           
+          },
+          error: function(xhr, textStatus, errorThrown) {
+            $('#error2').modal('show'); 
           },
         });
       }
 
+      function checkValidation() {
+        // empty fields
+        if(!Name1 || !email1 || !phone1 || !message1) {
+          $('#contactus-form-field-error').text('Please fill all required details!!!');
+          return false;
+        } 
+        // name
+        if(!/^[^0-9]+$/.test(Name1)) {
+          $('#contactus-form-field-error').text('Invalid name. Name should not contain numbers!!!');
+          return false;
+        }
+        // phone
+        if(!/^[\\+]?[0-9]{9}[0-9]*$/.test(phone1)) {
+          $('#contactus-form-field-error').text('Invalid phone number!!!');
+          return false;
+        }
+        // email
+        if(!/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(email1)) {
+          $('#contactus-form-field-error').text('Invalid email!!!');
+          return false;
+        }
+
+        return true;
+
+      }
+
       function onItemSaveComplete(response, status) {
-
-
         if (status == "success") {
-
-    
           if(response.status==100)
         {
           $('#success').modal('show'); 
@@ -369,6 +381,7 @@
         }
       }
     });
+
   </script>
 
     <!-- FOOTER SECTION -->

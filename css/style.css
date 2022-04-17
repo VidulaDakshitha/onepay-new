@@ -177,6 +177,10 @@ body {
       box-shadow: 0px 4px 54px rgba(0, 65, 164, 0.2);
     }
 
+    .app-gallery {
+      box-shadow: 0px 4px 54px rgba(0, 65, 164, 0.2);
+    }
+
     .btn-primary-bg svg {
       top: 16px;
       left: 8px;
@@ -196,6 +200,9 @@ body {
       background-color: #0041A4;
     }
 
+    #huawei_btn{
+      background-color: #fc0100;
+    }
 
     .btn-primary-bg strong{
       font-weight: 800;
@@ -209,6 +216,11 @@ body {
       justify-content: center;
       column-gap: 15px;
     }
+
+    /* .buttons-downloard-app > a {
+      width: 5rem;
+      height: 1rem;
+    } */
         
     /* avatars in rating */
 
@@ -1252,6 +1264,12 @@ body {
   }
 
   .consumber-main__btn-logo1 {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .consumber-main__btn-logo3 {
+    width: 45px;
     padding-left: 9px;
     padding-right: 9px;
   }

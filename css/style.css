@@ -184,11 +184,20 @@ body {
     .btn-primary-bg svg {
       top: 16px;
       left: 8px;
-      width: 31px;
-      height: 34px;
       margin-right: 10px;
     }
 
+    .plays-store svg {
+      transform: scale(1);
+    }
+
+    .apple-store svg {
+      transform: scale(1);
+    }
+
+    .app-gallery svg {
+      transform: scale(1.2);
+    }
 
     /* center text */
     .btn-primary-bg:hover{
@@ -216,6 +225,46 @@ body {
       justify-content: center;
       column-gap: 15px;
     }
+
+    @media only screen and (max-width: 545px) {
+      .buttons-downloard-app {
+        width: 100%;
+        column-gap: 5px;
+        margin: 0;
+      }
+
+      .btn-primary-bg {
+        width: 32%;
+        padding: 24px 0 !important;
+      }
+
+      .header-btn__text {
+        display: none !important;
+      }
+
+      .btn-primary-bg svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 31px;
+        height: 34px;
+        margin-right: 0;
+      }
+
+      .plays-store svg {
+        transform: translate(-50%, -50%) scale(0.9);
+      }
+  
+      .apple-store svg {
+        transform: translate(-50%, -50%) scale(1);
+      }
+  
+      .app-gallery svg {
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+
+    }
+   
 
     /* .buttons-downloard-app > a {
       width: 5rem;
@@ -306,10 +355,6 @@ body {
       display: flex;
       flex-direction: column;
       text-align: initial;
-    }
-
-    .btn-primary-bg--image {
-      margin-right: 10px;
     }
 
     .header-btn__text-sub {

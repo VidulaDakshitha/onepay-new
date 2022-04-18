@@ -1269,9 +1269,8 @@ body {
   }
 
   .consumber-main__btn-logo3 {
-    width: 45px;
-    padding-left: 9px;
-    padding-right: 9px;
+    width: 26px;
+    margin-left: 8px;
   }
 
   @media only screen and (max-width: 630px) {
@@ -1371,8 +1370,8 @@ body {
   }
 
   .btn-common__logo2 {
-    padding-left: 9px;
-    padding-right: 9px;
+    padding-left: 12px;
+    padding-right: 6px;
   }
 
   .consumer-feature__img  {

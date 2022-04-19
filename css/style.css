@@ -803,6 +803,10 @@ body {
           justify-content: space-between;
           height: 80%;
         }
+
+        /* .footer-logo-section img {
+          image-rendering: -webkit-optimize-contrast;
+        } */
         /* Footer Style End*/
 
 
@@ -848,8 +852,14 @@ body {
           height: 100px;
         } */
 
+        .footer-logo-div { }
+
         .footer__logo {
-         padding: 0 0 30px;
+          float: left;
+          width: 130px;
+          height: auto;
+          image-rendering: -webkit-optimize-contrast;
+          margin: 0px 32px 2px 0px;
         }
 
         .footer_a_tag {
@@ -877,7 +887,7 @@ body {
          color: #CFCFCF;
          font-size: 18px;
          line-height: 30px;
-         
+        text-align: justify;
        }
 
        .footer__copyrigh_paragraph {

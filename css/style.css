@@ -799,6 +799,10 @@ body {
           justify-content: space-between;
           height: 80%;
         }
+
+        .footer-logo-section img {
+          cursor: pointer;
+        }
         /* Footer Style End*/
 
 

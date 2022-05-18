@@ -51,7 +51,34 @@
 </script>
 
 <body>
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: "v8.0",
+      });
+    };
 
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, "script", "facebook-jssdk");
+  </script>
+
+  <!-- Your Chat Plugin code -->
+  <div
+    class="fb-customerchat"
+    attribution="setup_tool"
+    page_id="695949390851250"
+    theme_color="#67b868"
+  ></div>
   <!--nav bar-->
 
   <nav class="navbar navbar-expand-lg navbar-light custom-nav__modify sticky-top">
@@ -84,11 +111,11 @@
           </li>
 
           <li class="nav-item nav-item-align">
-            <a class="nav-link nav-item-custom" href="about-us.html">About us</a>
+            <a class="nav-link nav-item-custom" href="aboutus.html">About us</a>
           </li>
 
           <li class="nav-item nav-item-align">
-            <a class="nav-link nav-item-custom" href="contact-us.html">Contact us</a>
+            <a class="nav-link nav-item-custom" href="contactus.html">Contact us</a>
           </li>
 
           <li class="nav-item">
@@ -395,7 +422,7 @@
             details and offer your store listing which will help you to increase the
             customer walk-ins.
           </p>
-          <a href="./contact-us.html" class="business-features__btn">Apply Online <svg width="15" height="14" viewBox="0 0 15 14"
+          <a href="./contactus.html" class="business-features__btn">Apply Online <svg width="15" height="14" viewBox="0 0 15 14"
               fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M10.9767 6.16664L6.50668 1.69664L7.68501 0.518311L14.1667 6.99998L7.68501 13.4816L6.50668 12.3033L10.9767 7.83331H0.833344V6.16664H10.9767Z"
@@ -566,7 +593,7 @@
             designed to meet your business needs. Target the right consumers and
             sample your products and services in the form of “reward coupons” which
             will be distributed by Onepay or simply advertised within the app.</p>
-          <a href="" class="business-features__btn">View Details <svg width="15" height="14" viewBox="0 0 15 14"
+          <a href="./business.html" class="business-features__btn">View Details <svg width="15" height="14" viewBox="0 0 15 14"
               fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M10.9767 6.16664L6.50668 1.69664L7.68501 0.518311L14.1667 6.99998L7.68501 13.4816L6.50668 12.3033L10.9767 7.83331H0.833344V6.16664H10.9767Z"
@@ -786,7 +813,7 @@
                     <img src="./assets/SVG/faq-telephone.svg" alt="telephone-img" class="question-content__img">
                     <h3 class="question-content__title">Have more questions?</h3>
                     <p class="question-content__para">Let us know and our experts will get in touch with you ASAP.</p>
-                    <a href="./contact-us.html" class="question-content__link">Take to our experts</a>
+                    <a href="./contactus.html" class="question-content__link">Take to our experts</a>
                 </div>
             </div>
         </div>
@@ -866,7 +893,7 @@
               </div>
               <div class="col-lg-2 col-md-6 col-sm-12 footer__top-section">
                   <h3 class="footer__links_heading">Links</h3>
-                  <div><a href="./about-us.html" class="footer_a_tag">About Us</a></div>
+                  <div><a href="./aboutus.html" class="footer_a_tag">About Us</a></div>
                   <div><a href="/user_terms.pdf" download class="footer_a_tag">User Terms & Conditions</a></div>
                   <div><a href="/merchant_terms.pdf" download class="footer_a_tag">Merchant Terms & Conditions</a></div>
                   <div><a href="https://privacy-onepay.spemai.com/" class="footer_a_tag">Privacy Policy</a></div>
